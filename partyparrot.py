@@ -186,17 +186,15 @@ ALPHABET = {
     ]
 }
 
-
-def random_party_parrot():
-    return random.choice([
-        ':partyparrot:',
-        ':partyparrot2:',
-        ':partyparrot3:',
-        ':partyparrot4:'
-    ])
+PARTY_PARROTS = [
+    ':partyparrot:',
+    ':partyparrot2:',
+    ':partyparrot3:',
+    ':partyparrot4:'
+]
 
 
-def arr_to_str(c, s=':partyparrot:', space='        '):
+def arr_to_str(c, s, space='        '):
     if c == ' ':
         return '\n\n\n\n\n\n\n\n'
     arr = ALPHABET[c]
@@ -208,11 +206,15 @@ def arr_to_str(c, s=':partyparrot:', space='        '):
 
     return output_string
 
-if __name__ == '__main__':
-    input_str = sys.argv[1].lower()
-    output_string = ''
-    for c in input_str:
-        output_string += arr_to_str(c, s=random_party_parrot())
-        output_string += '\n\n'
 
-    print output_string
+def convert_str_to_emoji(s, emojis=PARTY_PARROTS):
+    s = s.lower()
+    output_string = ''
+    for c in s:
+        output_string += arr_to_str(c, random.choice(emojis))
+        output_string += '\n\n'
+    return output_string
+
+if __name__ == '__main__':
+    input_str = sys.argv[1]
+    print convert_str_to_emoji(input_str)
