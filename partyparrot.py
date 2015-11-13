@@ -14,7 +14,7 @@ PARTY_PARROTS = [
 ]
 
 
-def arr_to_str(c, s, space='        '):
+def arr_to_str(c, s, space):
     if c == ' ':
         return '\n\n\n\n\n\n\n\n'
     arr = ALPHABET[c]
@@ -41,14 +41,14 @@ def post_text_to_slack(output_string):
     return requests.post(os.environ['SHITPOSTING_ENDPOINT'], data=json.dumps(payload))
 
 
-def convert_str_to_emoji(s, emojis=PARTY_PARROTS, force=False):
+def convert_str_to_emoji(s, emojis=PARTY_PARROTS, space=' ', force=False):
 
     emoji_iterator = itertools.cycle(emojis)
 
     s = s.lower()
     output_string = ''
     for c in s:
-        output_string += arr_to_str(c, emoji_iterator.next())
+        output_string += arr_to_str(c, emoji_iterator.next(), space)
         output_string += '\n\n'
     if force:
         post_text_to_slack(output_string)
@@ -57,12 +57,15 @@ def convert_str_to_emoji(s, emojis=PARTY_PARROTS, force=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('text', help='The text to emoji-fy')
-    parser.add_argument('-e', '--emojis', nargs='+', help='List of emojis to use.')
-    parser.add_argument('-f', '--force', action='store_true', help='automatically post to the slack of your choosing')
+    parser.add_argument('-e', '--emojis', nargs='+', help='List of emojis to use.', default=PARTY_PARROTS)
+    parser.add_argument('-f', '--force', action='store_true', help='automatically post to the slack of your choosing', default=False)
+    parser.add_argument('-s', '--space', default='        ')
 
     args = parser.parse_args()
 
-    if args.emojis:
-        print(convert_str_to_emoji(args.text, emojis=args.emojis, force=args.force))
-    else:
-        print(convert_str_to_emoji(args.text, force=args.force))
+    out_str = convert_str_to_emoji(args.text,
+                                   emojis=args.emojis,
+                                   space=args.space,
+                                   force=args.force
+                                   )
+    print(out_str)
