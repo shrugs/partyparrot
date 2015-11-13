@@ -1,6 +1,6 @@
 # :partyparrot:
 
-![partyparrot](partyparrot.png)
+![partyparrot](example.gif)
 
 # Usage
 
