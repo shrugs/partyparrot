@@ -1,5 +1,4 @@
 import json
-import random
 import requests
 import argparse
 import itertools
