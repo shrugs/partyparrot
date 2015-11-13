@@ -217,5 +217,8 @@ def convert_str_to_emoji(s, emojis=PARTY_PARROTS):
 
 if __name__ == '__main__':
     input_str = sys.argv[1]
-    emojis = sys.argv[2:]
-    print convert_str_to_emoji(input_str, emojis=emojis)
+    if len(sys.argv) > 2:
+        emojis = sys.argv[2:]
+        print convert_str_to_emoji(input_str, emojis=emojis)
+    else:
+        print convert_str_to_emoji(input_str)
