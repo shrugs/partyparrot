@@ -1,5 +1,8 @@
-import sys
+import json
 import random
+import requests
+import sys
+from secrets import SHITPOSTING_ENDPOINT
 
 ALPHABET = {
     'a': [
@@ -207,18 +210,36 @@ def arr_to_str(c, s, space='        '):
     return output_string
 
 
-def convert_str_to_emoji(s, emojis=PARTY_PARROTS):
+def post_text_to_slack(output_string):
+    payload = {
+        'username': 'Someone fun',
+        'icon_emoji': ':partyparrot:',
+        'text': output_string
+    }
+
+    return requests.post(SHITPOSTING_ENDPOINT, data=json.dumps(payload))
+
+
+def convert_str_to_emoji(s, emojis=PARTY_PARROTS, force=False):
     s = s.lower()
     output_string = ''
     for c in s:
         output_string += arr_to_str(c, random.choice(emojis))
         output_string += '\n\n'
+    if force:
+        post_text_to_slack(output_string)
     return output_string
 
 if __name__ == '__main__':
+    # Handles -f force-to-Slack flag
+    force = False
+    if sys.argv[1] == '-f':
+        force = True
+        sys.argv.remove(sys.argv[1])
+
     input_str = sys.argv[1]
     if len(sys.argv) > 2:
         emojis = sys.argv[2:]
-        print convert_str_to_emoji(input_str, emojis=emojis)
+        print convert_str_to_emoji(input_str, emojis=emojis, force=force)
     else:
-        print convert_str_to_emoji(input_str)
+        print convert_str_to_emoji(input_str, force=force)
