@@ -7,9 +7,10 @@ from alphabet import ALPHABET
 
 PARTY_PARROTS = [
     ':partyparrot:',
-    ':partyparrot2:',
-    ':partyparrot3:',
-    ':partyparrot4:'
+    ':rightparrot:',
+    ':middleparrot:',
+    ':boredparrot:',
+    ':shuffleparrot:'
 ]
 
 
