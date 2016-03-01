@@ -48,7 +48,7 @@ def convert_str_to_emoji(s, emojis=PARTY_PARROTS, space=' ', force=False):
     s = s.lower()
     output_string = ''
     for c in s:
-        output_string += arr_to_str(c, emoji_iterator.next(), space)
+        output_string += arr_to_str(c, next(emoji_iterator), space)
         output_string += '\n\n'
     if force:
         post_text_to_slack(output_string)
