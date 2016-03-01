@@ -1,6 +1,12 @@
 # :partyparrot:
 
-![partyparrot](example.gif)
+![partyparrot](media/example.gif)
+
+I also made a shirt for the party parrot because it compelled me to. <sup><sup><sup>help me</sup></sup></sup>
+
+[Teespring Campaign](https://teespring.com/partyparrot)
+
+[![teespring campaign](media/teespring.png)](https://teespring.com/partyparrot)
 
 # Usage
 
