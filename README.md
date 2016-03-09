@@ -2,12 +2,6 @@
 
 ![partyparrot](media/example.gif)
 
-I also made a shirt for the party parrot because it compelled me to. <sup><sup><sup>help me</sup></sup></sup>
-
-[Teespring Campaign](https://teespring.com/partyparrot)
-
-[![teespring campaign](media/teespring.png)](https://teespring.com/partyparrot)
-
 # Usage
 
 ## With the Party Parrot (:partyparrot:)
@@ -33,6 +27,10 @@ Use the `-f` or `--force` flag to auto-post to your favorite Slack channel (conf
 ```bash
 SHITPOSTING_ENDPOINT="<YOUR_SLACK_INCOMING_WEBHOOK_URL>" python partyparrot.py "something stupid" -f
 ```
+
+## As a Slash Command `/partyparrot`
+
+Now that slack supports posting to the channel in response to a slash command, providing the party parrot as one makes a lot of sense. Simply deploy this app to your favorite Procfile-compatible hosting provider ([heroku](https://heroku.com/) and [dokku](https://github.com/dokku/dokku) come to mind) and configure the Custom Slash Command Integration in your slack channel. The app allows for the optional ENV var `SLACK_TEAM_TOKEN` to restrict access to a specific team.
 
 ## Tests
 
