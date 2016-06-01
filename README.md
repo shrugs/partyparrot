@@ -34,5 +34,12 @@ Now that slack supports posting to the channel in response to a slash command, p
 
 ## Tests
 
+> implying you actually want to test this
+
 `python test_partyparrot.py`
 
+## Shameless Plug
+
+I also made a shirt for the party parrot because it compelled me to. <sup><sup><sup>help me</sup></sup></sup>
+[Teespring Campaign](https://teespring.com/partyparrot)
+[![teespring campaign](media/teespring.png)](https://teespring.com/partyparrot)
