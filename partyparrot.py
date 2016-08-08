@@ -4,6 +4,7 @@ import argparse
 import itertools
 import os
 from alphabet import ALPHABET
+from numbers import NUMBERS
 
 PARTY_PARROTS = [
     ':partyparrot:',
@@ -17,7 +18,12 @@ PARTY_PARROTS = [
 def arr_to_str(c, s, space):
     if c == ' ':
         return '\n\n\n\n\n\n\n\n'
-    arr = ALPHABET[c]
+    if c in ALPHABET:
+        arr = ALPHABET[c]
+    elif c in NUMBERS:
+        arr = NUMBERS[c]
+    else:
+        raise ValueError(u"'{}' is not a supported character".format(c))
     output_string = ''
     for row in arr:
         for col in row:
