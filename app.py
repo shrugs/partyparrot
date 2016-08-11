@@ -31,7 +31,7 @@ def slack():
         # The shitposting must go on.
 
         if out[0] == EN_SPACE:
-            out = '.' + out[2:]
+            out = '.' + out[1:]
 
         return jsonify(
             response_type='in_channel',
