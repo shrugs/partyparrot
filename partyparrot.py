@@ -3,8 +3,7 @@ import requests
 import argparse
 import itertools
 import os
-from alphabet import ALPHABET
-from numbers import NUMBERS
+from all_characters import ALL_CHARACTERS
 
 PARTY_PARROTS = [
     ':partyparrot:',
@@ -18,10 +17,8 @@ PARTY_PARROTS = [
 def arr_to_str(c, s, space):
     if c == ' ':
         return '\n\n\n\n\n\n\n\n'
-    if c in ALPHABET:
-        arr = ALPHABET[c]
-    elif c in NUMBERS:
-        arr = NUMBERS[c]
+    if c in ALL_CHARACTERS:
+        arr = ALL_CHARACTERS[c]
     else:
         raise ValueError(u"'{}' is not a supported character".format(c))
     output_string = ''
