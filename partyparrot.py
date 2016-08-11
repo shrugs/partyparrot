@@ -66,9 +66,12 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    out_str = convert_str_to_emoji(args.text,
-                                   emojis=args.emojis,
-                                   space=args.space,
-                                   force=args.force
-                                   )
-    print(out_str)
+    try:
+        out_str = convert_str_to_emoji(args.text,
+                                       emojis=args.emojis,
+                                       space=args.space,
+                                       force=args.force
+                                       )
+        print(out_str)
+    except ValueError as e:
+        print(str(e))
