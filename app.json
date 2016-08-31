@@ -1,0 +1,7 @@
+{
+  "name": "partyparrot",
+  "description": "🎉🐦 Very Serious Code™️ that generates a slack-compatible emoji representation of english words.",
+  "repository": "https://github.com/Shrugs/partyparrot",
+  "logo": "http://cultofthepartyparrot.com/parrots/parrot.gif",
+  "keywords": ["partyparrot", "shitposting", "slack"]
+}
