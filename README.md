@@ -4,6 +4,8 @@
 
 # Usage
 
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## With the Party Parrot (:partyparrot:)
 
 Just pass the script a string of your choosing.
