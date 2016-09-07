@@ -24,7 +24,7 @@ python partyparrot.py "something stupid" -e ":emoji1:" ":emoji2:" ":emoji3:" ":e
 
 ## Auto-Post to Slack
 
-Use the `-f` or `--force` flag to auto-post to your favorite Slack channel (configure URL in the "Incoming Webhooks" section of the "Integrations" page).
+Use the `-f` or `--force` flag to auto-post to your least favorite Slack channel (configure URL in the "Incoming Webhooks" section of the "Integrations" page).
 
 ```bash
 SHITPOSTING_ENDPOINT="<YOUR_SLACK_INCOMING_WEBHOOK_URL>" python partyparrot.py "something stupid" -f
