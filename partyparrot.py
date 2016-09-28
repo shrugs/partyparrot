@@ -6,11 +6,23 @@ import os
 from all_characters import ALL_CHARACTERS
 
 PARTY_PARROTS = [
-    ':partyparrot:',
-    ':rightparrot:',
-    ':middleparrot:',
-    ':boredparrot:',
-    ':shuffleparrot:'
+    ':aussie-parrot:',
+    ':bored-parrot:',
+    ':chill-parrot:',
+    ':conga-parrot-reverse:',
+    ':conga-parrot:',
+    ':cop_parrot:',
+    ':deal-with-it-parrot:',
+    ':fast-parrot:',
+    ':fiesta-parrot:',
+    ':goth-parrot:',
+    ':icecreamparrot:',
+    ':parrot-right:',
+    ':parrot-wave1:',
+    ':party-parrot:',
+    ':real-party-parrot:',
+    ':shuffle-party-parrot:',
+    ':weird-parrot:',
 ]
 
 
