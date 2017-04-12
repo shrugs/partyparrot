@@ -27,7 +27,7 @@ python partyparrot.py "something stupid" -e ":emoji1:" ":emoji2:" ":emoji3:" ":e
 Use the `-c` or `--colons` flag to add colons around your inputs for custom emoji.
 
 ```bash
-python partyparrot.py "AMAZING" -e "parrotwave1" "parrotwave2" "parrotwave3" | pbcopy
+python partyparrot.py "AMAZING" -c -e "parrotwave1" "parrotwave2" "parrotwave3" | pbcopy
 ```
 
 ## Auto-Post to Slack
