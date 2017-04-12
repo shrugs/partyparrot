@@ -44,7 +44,9 @@ def post_text_to_slack(output_string):
     return requests.post(os.environ['SHITPOSTING_ENDPOINT'], data=json.dumps(payload))
 
 
-def convert_str_to_emoji(s, emojis=PARTY_PARROTS, space=' ', force=False):
+def convert_str_to_emoji(s, emojis=PARTY_PARROTS, space=' ', force=False, colons=False):
+    if colons:
+      emojis = [':' + emoji + ':' for emoji in emojis]
 
     emoji_iterator = itertools.cycle(emojis)
 
@@ -60,7 +62,8 @@ def convert_str_to_emoji(s, emojis=PARTY_PARROTS, space=' ', force=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('text', help='The text to emoji-fy')
-    parser.add_argument('-e', '--emojis', nargs='+', help='List of emojis to use.', default=PARTY_PARROTS)
+    parser.add_argument('-e', '--emojis', nargs='+', help='List of emojis to use.', default=PARTY_PARROTS),
+    parser.add_argument('-c', '--colons', action='store_true', help="Add colons around the input emoji."),
     parser.add_argument('-f', '--force', action='store_true', help='automatically post to the slack of your choosing', default=False)
     parser.add_argument('-s', '--space', default='        ')
 
@@ -70,7 +73,8 @@ if __name__ == '__main__':
         out_str = convert_str_to_emoji(args.text,
                                        emojis=args.emojis,
                                        space=args.space,
-                                       force=args.force
+                                       force=args.force,
+                                       colons=args.colons
                                        )
         print(out_str)
     except ValueError as e:
