@@ -31,6 +31,12 @@ class TestPartyParrot(unittest.TestCase):
             self.number_result
         )
 
+    def test_add_colons(self):
+        self.assertEqual(
+          partyparrot.convert_str_to_emoji('TEST', emojis=['partyparrot'], colons=True),
+          self.partyparrot_result
+        )
+
     def test_invalid_character(self):
         with self.assertRaises(ValueError):
             partyparrot.convert_str_to_emoji('TEST_')

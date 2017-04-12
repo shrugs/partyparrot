@@ -22,6 +22,14 @@ Use the `-e` or `--emojis` flag to use a custom list of emojis.
 python partyparrot.py "something stupid" -e ":emoji1:" ":emoji2:" ":emoji3:" ":emoji4:" | pbcopy
 ```
 
+## For the lazy
+
+Use the `-c` or `--colons` flag to add colons around your inputs for custom emoji.
+
+```bash
+python partyparrot.py "AMAZING" -e "parrotwave1" "parrotwave2" "parrotwave3" | pbcopy
+```
+
 ## Auto-Post to Slack
 
 Use the `-f` or `--force` flag to auto-post to your favorite Slack channel (configure URL in the "Incoming Webhooks" section of the "Integrations" page).
