@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import json
 import requests
 import argparse
@@ -38,7 +39,7 @@ def post_text_to_slack(output_string):
     payload = {
         'username': 'The Party Parrot',
         'icon_emoji': ':partyparrot:',
-        'text': output_string
+        'text': u'⁣\n\n' + output_string
     }
 
     return requests.post(os.environ['SHITPOSTING_ENDPOINT'], data=json.dumps(payload))
