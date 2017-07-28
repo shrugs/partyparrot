@@ -39,7 +39,7 @@ def post_text_to_slack(output_string):
     payload = {
         'username': 'The Party Parrot',
         'icon_emoji': ':partyparrot:',
-        'text': output_string
+        'text': u'⁣\n' + output_string
     }
 
     return requests.post(os.environ['SHITPOSTING_ENDPOINT'], data=json.dumps(payload))
@@ -53,7 +53,7 @@ def convert_str_to_emoji(s, emojis=PARTY_PARROTS, space=' ', force=False):
     output_string = ''
     for c in s:
         output_string += arr_to_str(c, next(emoji_iterator), space)
-        output_string = u'⁣\n' + output_string + '\n\n'
+        output_string += '\n\n'
     if force:
         post_text_to_slack(output_string)
     return output_string
