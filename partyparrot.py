@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import json
 import requests
 import argparse
@@ -52,7 +53,7 @@ def convert_str_to_emoji(s, emojis=PARTY_PARROTS, space=' ', force=False):
     output_string = ''
     for c in s:
         output_string += arr_to_str(c, next(emoji_iterator), space)
-        output_string = 'parrots assemble\n\n' + output_string + '\n\n'
+        output_string = u'⁣\n\n' + output_string + '\n\n'
     if force:
         post_text_to_slack(output_string)
     return output_string
