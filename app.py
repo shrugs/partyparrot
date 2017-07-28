@@ -24,21 +24,14 @@ def slack():
 
     try:
         out = partyparrot.convert_str_to_emoji(text, space=(EN_SPACE * 3))
-        # because slack trims the beginning of messages now,
-        # and unicode spaces don't help,
-        # replace the first character with a period.
-        # ideally we find a better way to do this, but for now this works.
-        # The shitposting must go on.
-
-        if out[0] == EN_SPACE:
-            out = '.' + out[1:]
 
         return jsonify(
             response_type='in_channel',
-            text=out
+            text=partyparrot.make_slack_compatible(out)
         )
     except ValueError as e:
         return jsonify(text=str(e))
+
 
 if __name__ == '__main__':
     app.run(port=os.environ.get('PORT', 5000))

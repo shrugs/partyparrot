@@ -14,6 +14,8 @@ PARTY_PARROTS = [
     ':shuffleparrot:'
 ]
 
+EN_SPACE = '\u2002'
+
 
 def arr_to_str(c, s, space):
     if c == ' ':
@@ -39,10 +41,27 @@ def post_text_to_slack(output_string):
     payload = {
         'username': 'The Party Parrot',
         'icon_emoji': ':partyparrot:',
-        'text': u'⁣\n\n' + output_string
+        'text': make_slack_compatible(output_string)
     }
 
     return requests.post(os.environ['SHITPOSTING_ENDPOINT'], data=json.dumps(payload))
+
+
+def make_slack_compatible(partyparrot_string):
+    # because slack trims the beginning of messages now,
+    # and unicode spaces don't help,
+    # replace the first character with a period.
+    # ideally we find a better way to do this, but for now this works.
+    # The shitposting must go on.
+    out = partyparrot_string
+
+    # if the first character is a space, it would normally get truncated so let's prefix
+    if out[0] == EN_SPACE:
+        out = '.\n' + EN_SPACE + out[1:]
+    else:
+        out = '.\n' + out
+
+    return out
 
 
 def convert_str_to_emoji(s, emojis=PARTY_PARROTS, space=' ', force=False):
@@ -58,11 +77,14 @@ def convert_str_to_emoji(s, emojis=PARTY_PARROTS, space=' ', force=False):
         post_text_to_slack(output_string)
     return output_string
 
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('text', help='The text to emoji-fy')
-    parser.add_argument('-e', '--emojis', nargs='+', help='List of emojis to use.', default=PARTY_PARROTS)
-    parser.add_argument('-f', '--force', action='store_true', help='automatically post to the slack of your choosing', default=False)
+    parser.add_argument('-e', '--emojis', nargs='+',
+                        help='List of emojis to use.', default=PARTY_PARROTS)
+    parser.add_argument('-f', '--force', action='store_true',
+                        help='automatically post to the slack of your choosing', default=False)
     parser.add_argument('-s', '--space', default='        ')
 
     args = parser.parse_args()
