@@ -4,7 +4,7 @@
 
 # Usage
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+Deploy to now with `now`
 
 ## With the Party Parrot (:partyparrot:)
 

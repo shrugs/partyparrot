@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "name": "partyparrot",
+  "builds": [
+    {
+      "src": "index.py",
+      "use": "@now/python@canary"
+    }
+  ],
+  "env": {
+    "SLACK_TEAM_TOKEN": "@partyparrot_slack_team_token"
+  }
+}

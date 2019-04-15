@@ -8,11 +8,6 @@ slack_team_token = os.environ.get('SLACK_TEAM_TOKEN')
 EN_SPACE = '\u2002'
 
 
-@app.route('/', methods=['GET'])
-def index():
-    return 'OK'
-
-
 @app.route('/', methods=['POST'])
 def slack():
     if slack_team_token and request.form.get('token') != slack_team_token:
@@ -32,6 +27,3 @@ def slack():
     except ValueError as e:
         return jsonify(text=str(e))
 
-
-if __name__ == '__main__':
-    app.run(port=os.environ.get('PORT', 5000))
