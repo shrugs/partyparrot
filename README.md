@@ -43,5 +43,5 @@ Now that slack supports posting to the channel in response to a slash command, p
 ## Shameless Plug
 
 I also made a shirt for the party parrot because it compelled me to. <sup><sup><sup>help me</sup></sup></sup>
-[Teespring Campaign](https://teespring.com/partyparrot)
-[![teespring campaign](media/teespring.png)](https://teespring.com/partyparrot)
+[Teespring Campaign](https://teespring.com/shop/partyparrotee)
+[![teespring campaign](media/teespring.png)](https://teespring.com/shop/partyparrotee)
